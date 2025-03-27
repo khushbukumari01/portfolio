@@ -49,6 +49,23 @@ export default function Page(): JSX.Element {
 
   useEffect(() => {
     const internshipData = [
+      {
+        id: 1,
+        company: "Science and Technology Council IIT BHU",
+        position: "Frontend Developer",
+        description:
+          "Worked on frontend",
+        startDate: "Mar 2023",
+        endDate: "Dec 2023",
+        skills: [
+          "React.js",
+          "Node.js",
+          "git",
+          "github"
+        ],
+        image:
+          "https://media.licdn.com/dms/image/v2/C4D0BAQHGS5PRR2WFJg/company-logo_200_200/company-logo_200_200/0/1663357474575/ees_iit_bhu_logo?e=1748476800&v=beta&t=Drpwzl-3Onyh9yCwNyEwTdyNn7CJ_O-Sl86IkV8MY-Y",
+      },
     ];
 
     const experienceData = [
