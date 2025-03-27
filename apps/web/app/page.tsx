@@ -153,7 +153,7 @@ export default function Page(): JSX.Element {
       setMessages(prev => [...prev, { text: newMessage, isUser: true }]);
       
       try {
-        const response = await fetch("https://api.shubhamiitbhu.in/myai/personalbot", {
+        const response = await fetch("https://backend-wit1.onrender.com/api/agent", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -164,6 +164,7 @@ export default function Page(): JSX.Element {
         if (!response.ok) throw new Error('Failed to get response');
         
         const data = await response.json();
+        console.log(data)
         setMessages(prev => [...prev, { text: data.answer, isUser: false }]);
       } catch (error) {
         console.error("Chat error:", error);
