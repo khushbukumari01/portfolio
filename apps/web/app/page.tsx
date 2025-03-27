@@ -46,7 +46,27 @@ export default function Page(): JSX.Element {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean }>>([]);
   const [newMessage, setNewMessage] = useState("");
+  const Intro=`
+  I am Khushbu Kumari, a third-year B.Tech (Electronics Engineering) student at IIT (BHU), Varanasi. My academic journey includes outstanding performances with 89.8% in Class X (BSEB, securing 7th rank in Bihar) and 82.2% in Class XII (BSEB).
 
+As a passionate programmer and web developer, I've mastered C, C++, JavaScript, TypeScript, ReactJS, NodeJS, HTML, and CSS through hands-on projects:
+
+Built an Online Code Compiler supporting C, C++, Python, Java
+
+Developed a DSA Tracker to organize coding problems efficiently
+
+Created a Music Player with responsive design and smooth UX
+
+My expertise in Data Structures & Algorithms is demonstrated through my CodeChef rating (1215) and problem-solving skills. Beyond coding, I served as Co-Coordinator for Mashal'23, IIT BHU's sports fest, where I honed my leadership and event management abilities.
+
+What sets me apart:
+✔ Strong technical foundation with practical implementation
+✔ Proven track record in full-stack development
+✔ Leadership in organizing large-scale events
+✔ Continuous learner in competitive programming
+
+I'm eager to leverage my skills in challenging software development roles and contribute to innovative tech solutions.
+  `
   useEffect(() => {
     const internshipData = [
       {
@@ -143,6 +163,7 @@ export default function Page(): JSX.Element {
       },
     ];
 
+
     setInternships(internshipData);
     setExperiences(experienceData);
     setEducation(educationData);
@@ -181,7 +202,7 @@ export default function Page(): JSX.Element {
   return (
     <>
       <Header />
-      <div className="flex flex-row justify-center items-center my-20 sm:my-60">
+      {/* <div className="flex flex-row justify-center items-center my-20 sm:my-60">
         <div className="flex flex-col justify-center items-center">
           <Image
             src={"/image.jpg"}
@@ -203,9 +224,85 @@ export default function Page(): JSX.Element {
               IIT BHU
             </Link>
           </div>
+          <p>
+          {Intro}
+          </p>
         </div>
-      </div>
+      </div> */}
+       <div className="flex flex-col lg:flex-row justify-center items-center my-10 sm:my-20 gap-8 px-4 sm:px-8 max-w-6xl mx-auto">
+        {/* Image Section */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex-shrink-0"
+        >
+          <div className="relative group">
+            <Image
+              src={"/image.jpg"}
+              alt="Picture of the author"
+              width={250}
+              height={250}
+              className="rounded-full border-4 border-blue-500/30 shadow-xl group-hover:border-blue-500/50 transition-all duration-300"
+            />
+            <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-white/20 group-hover:scale-105 transition-all duration-300 pointer-events-none"></div>
+          </div>
+        </motion.div>
 
+        {/* Text Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/10 shadow-lg"
+        >
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+            Khushbu Kumari
+          </h1>
+          <h2 className="text-xl sm:text-2xl font-semibold text-blue-300 mb-4">
+            Electronics Engineering Student @{" "}
+            <Link
+              href="https://iitbhu.ac.in/"
+              className="hover:underline hover:text-blue-400 transition-colors"
+            >
+              IIT BHU
+            </Link>
+          </h2>
+
+          <div className="space-y-4 text-gray-200">
+            <p>
+              I'm a passionate programmer and web developer currently pursuing my B.Tech at IIT BHU. 
+              With expertise in <span className="text-blue-300">C++, JavaScript, React, and Node.js</span>, 
+              I've built several projects including an Online Code Compiler and DSA Tracker.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="flex items-center">
+                <span className="mr-2">🏆</span>
+                <span>7th Rank in Bihar (Class X)</span>
+              </div>
+              <div className="flex items-center">
+                <span className="mr-2">💻</span>
+                <span>CodeChef Rating: 1215</span>
+              </div>
+              {/* <div className="flex items-center">
+                <span className="mr-2">🎓</span>
+                <span>CGPA: 8.63</span>
+              </div> */}
+              <div className="flex items-center">
+                <span className="mr-2">⚡</span>
+                <span>Full-Stack Developer</span>
+              </div>
+            </div>
+            
+            <p>
+              Beyond coding, I serve as Sports Co-Coordinator for Mashal'23, 
+              demonstrating my <span className="text-blue-300">leadership</span> and 
+              <span className="text-blue-300"> event management</span> skills.
+            </p>
+          </div>
+        </motion.div>
+      </div>
       {/* Experience Section */}
       <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-8 mt-10">
         Experiences
